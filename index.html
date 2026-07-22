@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MugStudio | Tazas Personalizadas</title>
+    
+    <!-- Fuentes: Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!-- Iconos: FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Enlace al CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/logo.jpg" type="image/jpg">
+</head>
+<body>
+    <div class="blob-container">
+        <div class="blob"></div>
+        <div class="blob"></div>
+    </div>
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="navbar">
+        <div class="logo">MUGSTUDIO</div>
+        <button class="mobile-menu-btn" id="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#productos-section">Productos</a></li>
+            <li><a href="#faq-section">Preguntas</a></li>
+            
+            <!-- Botón Modo Oscuro/Claro -->
+            <li>
+                <button id="theme-toggle" class="theme-btn">
+                    <i id="theme-icon" class="fas fa-moon"></i>
+                </button>
+            </li>
+
+            <!-- Botón de Login -->
+            <li><button id="openLogin" class="btn-login">Ingresar</button></li>
+            
+            <!-- Botón de Contacto (Scroll al Footer) -->
+            <li><a href="#contacto" class="btn-contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- SECCIÓN HERO (PORTADA) -->
+    <header class="hero" id="inicio">
+        <div class="hero-content reveal">
+            <h1>Tazas que cuentan tu historia</h1>
+            <p>Personalizamos tazas de cerámica y polímero con tus diseños favoritos. ¡Tú lo imaginas, nosotros lo estampamos!</p>
+            <a href="https://wa.me/541131854055?text=Hola!%20Vi%20tu%20página%20y%20quiero%20personalizar%20una%20taza" class="cta-button" target="_blank">Pedir mi taza personalizada</a>
+        </div>
+    </header>
+
+    <section class="features reveal">
+        <div class="feature-item">
+            <i class="fas fa-truck"></i>
+            <h3>Envíos Rápidos</h3>
+            <p>Recibe tu taza en 48hs.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-check-circle"></i>
+            <h3>Calidad Premium</h3>
+            <p>Cerámica de alta resistencia.</p>
+        </div>
+        <div class="feature-item">
+            <i class="fas fa-lock"></i>
+            <h3>Compra Segura</h3>
+            <p>Tus datos están protegidos.</p>
+        </div>
+    </section>
+
+    <!-- SECCIÓN PRODUCTOS -->
+    <section class="productos" id="productos-section">
+        <h2 class="section-title reveal">Nuestros Productos</h2>
+        <div class="product-grid">
+            <!-- Taza de Cerámica -->
+            <div class="product-card reveal">
+                <img src="img/taza4.jpg" alt="Taza de cerámica">
+                <h3>Cerámica Premium</h3>
+                <p>Ideal para el hogar o la oficina. Acabado brillante y alta durabilidad.</p>
+                <span class="price">Calidad Superior</span>
+            </div>
+
+            <!-- Taza de Plástico -->
+            <div class="product-card reveal delay-1">
+                <img src="img/taza2.jpg" alt="Taza de plástico">
+                <h3>Polímero (Plástico)</h3>
+                <p>Irrompibles y ligeras. Perfectas para niños o para llevar de camping.</p>
+                <span class="price">Resistentes y Económicas</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN GALERÍA -->
+    <section class="galeria">
+        <h2 class="section-title reveal">Inspiración</h2>
+        <div class="galeria-grid">
+            <div class="galeria-item reveal">
+                <img src="img/taza5.jpg" alt="Diseño 1">
+                <div class="overlay"><span>Minimalista</span></div>
+            </div>
+            <div class="galeria-item reveal delay-1">
+                <img src="img/taza6.jpg" alt="Diseño 2">
+                <div class="overlay"><span>Ilustraciones</span></div>
+            </div>
+            <div class="galeria-item reveal delay-2">
+                <img src="img/taza7.jpg" alt="Diseño 3">
+                <div class="overlay"><span>Frases</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN PASOS -->
+    <section class="pasos reveal">
+        <h2 class="section-title">¿Cómo comprar?</h2>
+        <div class="steps-container">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h4>Elige tu taza</h4>
+                <p>Cerámica o plástico resistente.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h4>Envía tu diseño</h4>
+                <p>Mándanos tu idea por WhatsApp.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h4>¡Disfruta!</h4>
+                <p>Recibe tu taza personalizada.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN FAQ (ACORDEÓN) -->
+    <section class="faq" id="faq-section">
+        <h2 class="section-title reveal">Preguntas Frecuentes</h2>
+        <div class="faq-container reveal">
+            <div class="faq-item">
+                <button class="faq-question">
+                    ¿Son aptas para microondas?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Sí, nuestras tazas de cerámica premium son totalmente aptas para microondas y lavavajillas.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    ¿Hacen envíos a domicilio?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Realizamos envíos a todo el país mediante correo y mensajería privada.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question">
+                    ¿Cuánto tardan en estar listas?
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>El tiempo de producción es de 24 a 48 horas hábiles una vez confirmado el diseño.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL DE LOGIN / REGISTRO -->
+    <div class="modal-overlay" id="modalAuth">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">&times;</span>
+            <div class="form-container">
+                <h2 id="modalTitle">Iniciar Sesión</h2>
+                <form id="authForm">
+                    <div class="input-group" id="nameGroup" style="display: none;">
+                        <label>Nombre Completo</label>
+                        <input type="text" placeholder="Tu nombre">
+                    </div>
+                    <div class="input-group">
+                        <label>Correo Electrónico</label>
+                        <input type="email" placeholder="correo@ejemplo.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Contraseña</label>
+                        <input type="password" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="cta-button" style="width: 100%; border: none; cursor: pointer;">
+                        Continuar
+                    </button>
+                </form>
+                <p class="toggle-text">
+                    ¿No tienes cuenta? <a href="#" id="toggleAuth">Regístrate aquí</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTÓN WHATSAPP FLOTANTE -->
+    <a href="https://wa.me/541131854055?text=Hola!%20Vi%20tu%20página%20y%20quiero%20personalizar%20una%20taza" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- PIE DE PÁGINA (FOOTER) -->
+    <footer class="main-footer" id="contacto">
+        <div class="footer-container">
+            <div class="footer-info">
+                <h2 class="logo-footer">MUGSTUDIO</h2>
+                <p>Calidad garantizada en cada sorbo.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/nicoobenz/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+                    <a href="https://wa.me/541131854055?text=Hola!%20Vi%20tu%20página%20y%20quiero%20personalizar%20una%20taza"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Navegación</h4>
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#productos-section">Productos</a></li>
+                    <li><a href="#faq-section">Preguntas</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-envelope"></i> hola@mugstudio.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Buenos Aires, Argentina</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MugStudio - Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Script de JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
