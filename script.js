@@ -190,3 +190,58 @@ window.onscroll = function() {
     const scrolled = (winScroll / height) * 100;
     document.getElementById("progress-bar").style.width = scrolled + "%";
 };
+
+function enviarPedido() {
+    // 1. Obtenemos los valores del formulario
+    const tipoTaza = document.getElementById('tipo-taza').value;
+    const cantidad = document.getElementById('cantidad-tazas').value;
+    const detalle = document.getElementById('detalle-diseno').value;
+    
+    // 2. CONFIGURA TU NÚMERO AQUÍ (Sin el + y sin espacios)
+    const miNumero = "541131854055"; // Ejemplo: 541123456789
+
+    // 3. Validación: Si no escribió nada en el diseño, avisar
+    if (detalle.trim() === "") {
+        alert("Por favor, describe cómo quieres tu diseño para que podamos ayudarte mejor.");
+        return;
+    }
+
+    // 4. Creamos el mensaje formateado para WhatsApp
+    const mensaje = `*NUEVO PEDIDO DE TAZA*%0A` +
+                    `----------------------------%0A` +
+                    `*Tipo de Taza:* ${tipoTaza}%0A` +
+                    `*Cantidad:* ${cantidad}%0A` +
+                    `*Detalle del diseño:* ${detalle}%0A` +
+                    `----------------------------%0A` +
+                    `_Enviado desde la página web de MugStudio_`;
+
+    // 5. Abrimos la URL de WhatsApp
+    const url = `https://wa.me/${miNumero}?text=${mensaje}`;
+    window.open(url, '_blank');
+}
+
+/* =========================================
+   LÓGICA PARA QUITAR EL LOADER
+   ========================================= */
+window.addEventListener('load', () => {
+    const loader = document.getElementById('loader');
+    
+    // Le damos un pequeño retraso de 500ms para que se aprecie la animación
+    setTimeout(() => {
+        loader.classList.add('loader-hidden');
+    }, 1000); // 1 segundo para una buena impresión
+});
+
+/* =========================================
+   LÓGICA DE NAVBAR DINÁMICA
+   ========================================= */
+window.addEventListener('scroll', () => {
+    const nav = document.querySelector('.navbar');
+    
+    // Si bajamos más de 50px, añadimos la clase 'scrolled'
+    if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+});

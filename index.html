@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MugStudio | Tazas Personalizadas</title>
+    <title>MugStudio | Tazas Personalizadas y Regalos Únicos</title>
+    <meta name="description" content="Creamos tazas personalizadas con tus diseños favoritos. Cerámica premium, envíos rápidos y el regalo perfecto para cualquier ocasión.">
     
     <!-- Fuentes: Montserrat -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
@@ -16,6 +17,13 @@
     <link rel="icon" href="img/logo.jpg" type="image/jpg">
 </head>
 <body>
+    <div id="loader">
+        <div class="loader-content">
+            <i class="fas fa-mug-hot"></i>
+            <h3>MugStudio</h3>
+            <p>Preparando tu café...</p>
+        </div>
+    </div>
     <div id="progress-bar"></div>
     <div class="blob-container">
         <div class="blob"></div>
@@ -94,6 +102,15 @@
                 <p>Irrompibles y ligeras. Perfectas para niños o para llevar de camping.</p>
                 <span class="price">Resistentes y Económicas</span>
             </div>
+
+            <!-- Taza Mágica -->
+            <div class="product-card reveal delay-2">
+                <span class="badge badge-glow">TOP VENTAS</span>
+                <img src="img/tazamagica.gif" alt="Taza Mágica">
+                <h3>Taza Mágica</h3>
+                <p>Aparece el diseño al verter líquido caliente. ¡El regalo sorpresa ideal!</p>
+                <span class="price">Efecto Sorpresa</span>
+            </div>
         </div>
     </section>
 
@@ -138,15 +155,15 @@
         <h2 class="section-title">Tazas para cada ocasión</h2>
         <div class="categorias-container">
             <div class="categoria-card">
-                <div class="cat-img" style="background-image: url('https://images.unsplash.com/photo-1536939459926-301728717817?auto=format&fit=crop&w=500&q=60');"></div>
+                <div class="cat-img" style="background-image: url('img/taza8.jpg');"></div>
                 <h4>Cumpleaños</h4>
             </div>
             <div class="categoria-card">
-                <div class="cat-img" style="background-image: url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=500&q=60');"></div>
+                <div class="cat-img" style="background-image: url('img/taza9.jpg');"></div>
                 <h4>Empresariales</h4>
             </div>
             <div class="categoria-card">
-                <div class="cat-img" style="background-image: url('https://images.unsplash.com/photo-1512909006721-3d6018887383?auto=format&fit=crop&w=500&q=60');"></div>
+                <div class="cat-img" style="background-image: url('img/taza10.jpg');"></div>
                 <h4>Parejas</h4>
             </div>
         </div>
@@ -170,6 +187,44 @@
                 <div class="step-number">3</div>
                 <h4>¡Disfruta!</h4>
                 <p>Recibe tu taza personalizada.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN: CONFIGURADOR DE PEDIDO -->
+    <section class="configurador reveal" id="pedido">
+        <h2 class="section-title">Personaliza tu Pedido</h2>
+        <p class="section-subtitle" style="text-align: center; margin-top: -40px; margin-bottom: 40px; opacity: 0.8;">Completa los detalles y envíanos tu idea directamente por WhatsApp.</p>
+
+        <div class="config-container">
+            <div class="config-card">
+                <!-- Selección de Material -->
+                <div class="config-group">
+                    <label for="tipo-taza"><i class="fas fa-mug-hot"></i> 1. Elige el material:</label>
+                    <select id="tipo-taza">
+                        <option value="Cerámica Premium">Cerámica Premium (Brillante)</option>
+                        <option value="Polímero / Plástico">Polímero (Ideal para niños)</option>
+                        <option value="Taza Mágica">Taza Mágica (Negra que revela diseño)</option>
+                    </select>
+                </div>
+
+                <!-- Cantidad -->
+                <div class="config-group">
+                    <label for="cantidad-tazas"><i class="fas fa-sort-numeric-up"></i> 2. Cantidad:</label>
+                    <input type="number" id="cantidad-tazas" value="1" min="1">
+                </div>
+
+                <!-- Detalle del Diseño -->
+                <div class="config-group">
+                    <label for="detalle-diseno"><i class="fas fa-edit"></i> 3. Describe tu diseño:</label>
+                    <textarea id="detalle-diseno" placeholder="Ej: Quiero una foto de mi gato con la frase 'El rey de la casa' en color azul..."></textarea>
+                </div>
+
+                <!-- Botón de Envío -->
+                <button onclick="enviarPedido()" class="cta-button btn-whatsapp-config">
+                    <i class="fab fa-whatsapp"></i> Enviar pedido por WhatsApp
+                </button>
+                <p class="config-note">Al hacer clic, se abrirá tu WhatsApp con el pedido listo.</p>
             </div>
         </div>
     </section>
@@ -242,6 +297,40 @@
     <a href="https://wa.me/541131854055?text=Hola!%20Vi%20tu%20página%20y%20quiero%20personalizar%20una%20taza" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
+
+    <!-- SECCIÓN: MÉTODOS DE PAGO -->
+    <section class="metodos-pago reveal">
+        <div class="pagos-container">
+            <p>Aceptamos todos los medios de pago para tu comodidad</p>
+            <div class="pagos-icons">
+                <!-- Visa -->
+                <div class="pago-item">
+                    <i class="fab fa-cc-visa"></i>
+                    <span>Visa</span>
+                </div>
+                <!-- Mastercard -->
+                <div class="pago-item">
+                    <i class="fab fa-cc-mastercard"></i>
+                    <span>Mastercard</span>
+                </div>
+                <!-- Mercado Pago / Tarjetas -->
+                <div class="pago-item">
+                    <i class="fas fa-credit-card"></i>
+                    <span>Débito / Crédito</span>
+                </div>
+                <!-- Transferencia -->
+                <div class="pago-item">
+                    <i class="fas fa-university"></i>
+                    <span>Transferencia</span>
+                </div>
+                <!-- Efectivo -->
+                <div class="pago-item">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <span>Efectivo</span>
+                </div>
+                </div>
+        </div>
+    </section>
 
     <!-- PIE DE PÁGINA (FOOTER) -->
     <footer class="main-footer" id="contacto">
