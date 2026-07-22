@@ -8,7 +8,7 @@
     --card-bg: #ffffff;
     --section-bg: #f9f9f9;
     --footer-bg: #2d3436;
-    --accent-color: #0984e3; /* Azul profesional */
+    --accent-color: #ff7675;
     --input-border: #dddddd;
     --modal-bg: #ffffff;
     --shadow: rgba(0, 0, 0, 0.1);
@@ -483,4 +483,73 @@ a {
 .close-lightbox {
     position: absolute; top: 20px; right: 30px;
     color: white; font-size: 40px; cursor: pointer;
+}
+
+.ventajas {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    padding: 60px 10%;
+    background: var(--section-bg);
+    text-align: center;
+    flex-wrap: wrap;
+}
+
+.ventaja-item {
+    flex: 1;
+    min-width: 250px;
+    padding: 20px;
+}
+
+.ventaja-item i {
+    font-size: 3rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    /* Efecto de flotación suave que ya creamos antes */
+    animation: floating 4s infinite ease-in-out;
+}
+
+.ventaja-item h3 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.categorias-container {
+    display: flex;
+    gap: 20px;
+    padding: 0 10%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.categoria-card {
+    width: 250px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.cat-img {
+    height: 150px;
+    width: 150px;
+    margin: 0 auto 15px;
+    border-radius: 50%; /* Fotos circulares quedan muy bien aquí */
+    background-size: cover;
+    background-position: center;
+    border: 5px solid var(--accent-color);
+    transition: 0.3s;
+}
+
+.categoria-card:hover .cat-img {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px var(--shadow);
+}
+
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: var(--accent-color);
+    width: 0%;
+    z-index: 2000;
 }
