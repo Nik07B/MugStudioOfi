@@ -196,14 +196,39 @@ function enviarPedido() {
     const pago = document.getElementById('metodo-pago').value;
     const detalle = document.getElementById('detalle-diseno').value;
     const total = document.getElementById('precio-total').innerText;
-    const miNumero = "541131854055"; 
+    
+    const miNumero = "541130872609"; 
 
     if (!ubicacion || !detalle) {
         alert("Por favor completa tu ubicación y el detalle del diseño.");
         return;
     }
 
-    const mensaje = `*PEDIDO MUGSTUDIO*%0A*Producto:* ${tipo}%0A*Cantidad:* ${cantidad}%0A*Ubicación:* ${ubicacion}%0A*Pago:* ${pago}%0A*Diseño:* ${detalle}%0A*Total:* ${total}`;
+    // DISEÑO DEL MENSAJE PROFESIONAL
+    const mensaje = encodeURIComponent(
+`*MUGSTUDIO - NUEVO PEDIDO*
+---------------------------------------
+
+*DETALLES DEL PRODUCTO*
+• *Material:* ${tipo}
+• *Cantidad:* ${cantidad} unidad/es
+
+*DISEÑO PERSONALIZADO*
+"${detalle}"
+
+*DATOS DE ENTREGA*
+• *Ubicación:* ${ubicacion}
+
+*MÉTODO DE PAGO*
+• ${pago}
+
+---------------------------------------
+  *TOTAL ESTIMADO: ${total}*
+---------------------------------------
+
+¡Hola! Vi tu página web y quiero confirmar este pedido. ¿Cómo seguimos?`
+    );
+
     window.open(`https://wa.me/${miNumero}?text=${mensaje}`, '_blank');
 }
 
