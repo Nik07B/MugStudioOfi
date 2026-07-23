@@ -12,6 +12,7 @@
     --input-border: #dcdde1;
     --modal-bg: #ffffff;
     --shadow: rgba(0, 0, 0, 0.05);
+    --pulse-color: rgba(255, 118, 117, 0.5); 
 }
 
 /* Variables para Modo Oscuro */
@@ -25,6 +26,7 @@ body.dark-mode {
     --input-border: #444444;
     --modal-bg: #1e1e1e;
     --shadow: rgba(0, 0, 0, 0.5);
+    --pulse-color: rgba(116, 185, 255, 0.6); 
 }
 
 /* =========================================
@@ -240,7 +242,7 @@ body.dark-mode .navbar.scrolled {
     font-weight: bold;
     text-transform: uppercase;
     text-decoration: none;
-    animation: pulse-blue 2s infinite;
+    animation: pulse-accent 2s infinite;
 }
 
 /* Creamos el efecto de brillo */
@@ -269,16 +271,21 @@ body.dark-mode .navbar.scrolled {
     }
 }
 
-/* 2. Definimos el efecto de pulso azul */
-@keyframes pulse-blue {
+/* Aplicar la animación a los botones */
+.cta-button, .btn-contacto {
+    animation: pulse-accent 2s infinite;
+}
+
+@keyframes pulse-accent {
     0% {
-        box-shadow: 0 0 0 0 rgba(9, 132, 227, 0.7); /* Color azul con transparencia */
+        box-shadow: 0 0 0 0 var(--pulse-color);
     }
     70% {
-        box-shadow: 0 0 0 20px rgba(9, 132, 227, 0); /* El círculo se expande y desaparece */
+        /* El radio del pulso se expande a 20px y se desvanece */
+        box-shadow: 0 0 0 20px rgba(0, 0, 0, 0); 
     }
     100% {
-        box-shadow: 0 0 0 0 rgba(9, 132, 227, 0);
+        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
     }
 }
 
