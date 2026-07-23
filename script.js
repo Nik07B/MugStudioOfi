@@ -191,33 +191,55 @@ window.onscroll = function() {
     document.getElementById("progress-bar").style.width = scrolled + "%";
 };
 
+/* =========================================
+   LÓGICA DEL CONFIGURADOR AVANZADO
+   ========================================= */
+
+// Función para calcular el precio en vivo
+function actualizarTotal() {
+    const select = document.getElementById('tipo-taza');
+    const cantidad = document.getElementById('cantidad-tazas').value;
+    const precioUnitario = select.options[select.selectedIndex].getAttribute('data-precio');
+    const totalDisplay = document.getElementById('precio-total');
+
+    if (cantidad > 0) {
+        const total = precioUnitario * cantidad;
+        // Formatear a moneda (ej: $15.000)
+        totalDisplay.innerText = `$${total.toLocaleString('es-AR')}`;
+    }
+}
+
+// Función para enviar el mensaje a WhatsApp
 function enviarPedido() {
-    // 1. Obtenemos los valores del formulario
     const tipoTaza = document.getElementById('tipo-taza').value;
     const cantidad = document.getElementById('cantidad-tazas').value;
+    const ubicacion = document.getElementById('ubicacion-cliente').value;
+    const pago = document.getElementById('metodo-pago').value;
     const detalle = document.getElementById('detalle-diseno').value;
+    const total = document.getElementById('precio-total').innerText;
     
-    // 2. CONFIGURA TU NÚMERO AQUÍ (Sin el + y sin espacios)
-    const miNumero = "541131854055"; // Ejemplo: 541123456789
+    const miNumero = "541131854055"; //
 
-    // 3. Validación: Si no escribió nada en el diseño, avisar
-    if (detalle.trim() === "") {
-        alert("Por favor, describe cómo quieres tu diseño para que podamos ayudarte mejor.");
+    // Validación básica
+    if (!ubicacion || !detalle) {
+        alert("Por favor completa tu ubicación y el detalle del diseño.");
         return;
     }
 
-    // 4. Creamos el mensaje formateado para WhatsApp
-    const mensaje = `*NUEVO PEDIDO DE TAZA*%0A` +
+    // Armamos el mensaje
+    const mensaje = `*NUEVO PEDIDO - MUGSTUDIO*%0A` +
                     `----------------------------%0A` +
-                    `*Tipo de Taza:* ${tipoTaza}%0A` +
+                    `*Producto:* ${tipoTaza}%0A` +
                     `*Cantidad:* ${cantidad}%0A` +
-                    `*Detalle del diseño:* ${detalle}%0A` +
+                    `*Ubicación:* ${ubicacion}%0A` +
+                    `*Pago:* ${pago}%0A` +
+                    `*Detalle:* ${detalle}%0A` +
                     `----------------------------%0A` +
-                    `_Enviado desde la página web de MugStudio_`;
+                    `*TOTAL ESTIMADO: ${total}*%0A` +
+                    `----------------------------%0A` +
+                    `_Enviado desde mi web_`;
 
-    // 5. Abrimos la URL de WhatsApp
-    const url = `https://wa.me/${miNumero}?text=${mensaje}`;
-    window.open(url, '_blank');
+    window.open(`https://wa.me/${miNumero}?text=${mensaje}`, '_blank');
 }
 
 /* =========================================

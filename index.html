@@ -4,8 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MugStudio | Tazas Personalizadas y Regalos Únicos</title>
-    <meta name="description" content="Creamos tazas personalizadas con tus diseños favoritos. Cerámica premium, envíos rápidos y el regalo perfecto para cualquier ocasión.">
+
+    <!-- Descripción para Google (Máximo 160 caracteres) -->
+    <meta name="description" content="Personaliza tu taza con tus fotos y frases favoritas. Calidad premium en cerámica, polímero y tazas mágicas. ¡El regalo perfecto con envíos rápidos!">
     
+    <!-- Palabras clave (Keywords) -->
+    <meta name="keywords" content="tazas personalizadas, tazas magicas, regalos personalizados, tazas con foto, tazas de ceramica, MugStudio">
+
+    <!-- Metaetiquetas para Redes Sociales y WhatsApp (Open Graph) -->
+    <meta property="og:title" content="MugStudio | Tazas que cuentan historias">
+    <meta property="og:description" content="Diseñamos la taza perfecta para ti. ¡Entra y personaliza la tuya!">
+    <meta property="og:url" content="https://mugstudios.netlify.app">
+    <meta property="og:type" content="website">
+
+    <!-- Imagen de previsualización (La que se ve en WhatsApp) -->
+    <!-- Debe ser una ruta completa para que funcione afuera de tu web -->
+    <meta property="og:image" content="https://mugstudios.netlify.app/img/logo.jpg"> 
+
     <!-- Fuentes: Montserrat -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
     
@@ -201,23 +216,45 @@
                 <!-- Selección de Material -->
                 <div class="config-group">
                     <label for="tipo-taza"><i class="fas fa-mug-hot"></i> 1. Elige el material:</label>
-                    <select id="tipo-taza">
-                        <option value="Cerámica Premium">Cerámica Premium (Brillante)</option>
-                        <option value="Polímero / Plástico">Polímero (Ideal para niños)</option>
-                        <option value="Taza Mágica">Taza Mágica (Negra que revela diseño)</option>
+                    <select id="tipo-taza" onchange="actualizarTotal()">
+                        <option value="Polímero" data-precio="8000">Polímero (Plástico) - $8.000</option>
+                        <option value="Cerámica" data-precio="15000">Cerámica Premium - $15.000</option>
+                        <option value="Mágica" data-precio="21000">Taza Mágica - $21.000</option>
                     </select>
                 </div>
 
                 <!-- Cantidad -->
                 <div class="config-group">
                     <label for="cantidad-tazas"><i class="fas fa-sort-numeric-up"></i> 2. Cantidad:</label>
-                    <input type="number" id="cantidad-tazas" value="1" min="1">
+                    <input type="number" id="cantidad-tazas" value="1" min="1" oninput="actualizarTotal()">
+                </div>
+
+                <!-- 3. Ubicación -->
+                <div class="config-group">
+                    <label for="ubicacion-cliente"><i class="fas fa-map-marker-alt"></i> 3. ¿De dónde sos? (Ciudad):</label>
+                    <input type="text" id="ubicacion-cliente" placeholder="Ej: Ramos Mejía, Buenos Aires">
+                </div>
+
+                <!-- 4. Método de Pago -->
+                <div class="config-group">
+                    <label for="metodo-pago"><i class="fas fa-wallet"></i> 4. Método de pago preferido:</label>
+                    <select id="metodo-pago">
+                        <option value="Transferencia">Transferencia Bancaria</option>
+                        <option value="Mercado Pago">Mercado Pago</option>
+                        <option value="Efectivo">Efectivo (Retiro en persona)</button>
+                    </select>
                 </div>
 
                 <!-- Detalle del Diseño -->
                 <div class="config-group">
                     <label for="detalle-diseno"><i class="fas fa-edit"></i> 3. Describe tu diseño:</label>
                     <textarea id="detalle-diseno" placeholder="Ej: Quiero una foto de mi gato con la frase 'El rey de la casa' en color azul..."></textarea>
+                </div>
+
+                <!-- VISUALIZACIÓN DEL TOTAL -->
+                <div class="total-container">
+                    <span>Total estimado:</span>
+                    <h3 id="precio-total">$8.000</h3>
                 </div>
 
                 <!-- Botón de Envío -->
