@@ -2,16 +2,16 @@
    1. VARIABLES (MODO CLARO POR DEFECTO)
    ========================================= */
 :root {
-    --bg-color: #ffffff;
+    --bg-color: #f5f7fa;
     --text-color: #2d3436;
     --navbar-bg: #ffffff;
     --card-bg: #ffffff;
     --section-bg: #f9f9f9;
     --footer-bg: #2d3436;
     --accent-color: #ff7675;
-    --input-border: #dddddd;
+    --input-border: #dcdde1;
     --modal-bg: #ffffff;
-    --shadow: rgba(0, 0, 0, 0.1);
+    --shadow: rgba(0, 0, 0, 0.05);
 }
 
 /* Variables para Modo Oscuro */
@@ -21,7 +21,7 @@ body.dark-mode {
     --navbar-bg: #1e1e1e;
     --card-bg: #1e1e1e;
     --section-bg: #181818;
-    --accent-color: #74b9ff; /* Azul más claro para resaltar */
+    --accent-color: #74b9ff;
     --input-border: #444444;
     --modal-bg: #1e1e1e;
     --shadow: rgba(0, 0, 0, 0.5);
@@ -214,6 +214,7 @@ body.dark-mode .navbar.scrolled {
     background-position: center;
     color: white;
     padding: 0 20px;
+    margin-bottom: 0;
 }
 
 .hero-content h1 {
@@ -524,16 +525,20 @@ body.dark-mode .navbar.scrolled {
         display: none; /* Escondemos el menú normal */
         flex-direction: column;
         position: absolute;
-        top: 70px;
+        top: 100%;
         left: 0;
         width: 100%;
-        background: var(--navbar-bg);
-        padding: 20px;
-        box-shadow: 0 10px 10px var(--shadow);
+        background-color: var(--navbar-bg); 
+        padding: 30px;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        z-index: 1000;
     }
 
     .nav-links.active { display: flex; } /* Se muestra al tocar el botón */
-    .nav-links li { margin: 15px 0; }
+    .nav-links li {
+        margin: 15px 0;
+        text-align: center;
+    }
 }
 
 .lightbox-overlay {
@@ -912,4 +917,66 @@ body.dark-mode .navbar.scrolled {
     .pago-item i {
         font-size: 2rem;
     }
+}
+
+/* =========================================
+   ANIMACIÓN DE FOCO (HIGHLIGHT)
+   ========================================= */
+.focus-highlight {
+    animation: focus-glow 2s ease-out;
+}
+
+@keyframes focus-glow {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(9, 132, 227, 0.7);
+    }
+    30% {
+        transform: scale(1.03); /* Crece un poquito */
+        box-shadow: 0 0 30px rgba(9, 132, 227, 0.5); /* Brillo intenso */
+        border-color: var(--accent-color);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 10px 20px var(--shadow); /* Vuelve a la normalidad */
+    }
+}
+
+/* =========================================
+   ESTILO DEL BOTÓN "VOLVER ARRIBA"
+   ========================================= */
+#backToTop {
+    position: fixed;
+    bottom: 110px; /* Queda justo arriba del botón de WhatsApp */
+    right: 35px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 2px solid var(--input-border);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    z-index: 999; /* Debajo de los modales, pero encima del contenido */
+    box-shadow: 0 4px 10px var(--shadow);
+    opacity: 0; /* Empieza invisible */
+    visibility: hidden; /* No se puede hacer clic mientras está oculto */
+    transition: all 0.3s ease;
+}
+
+/* Efecto al pasar el mouse */
+#backToTop:hover {
+    background-color: var(--accent-color);
+    color: white;
+    border-color: var(--accent-color);
+    transform: translateY(-3px);
+}
+
+/* Clase que activaremos con JavaScript para mostrarlo */
+#backToTop.show {
+    opacity: 1;
+    visibility: visible;
 }

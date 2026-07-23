@@ -267,3 +267,47 @@ window.addEventListener('scroll', () => {
         nav.classList.remove('scrolled');
     }
 });
+
+/* =========================================
+   EFECTO DE FOCO AL HACER CLIC EN "PEDIR"
+   ========================================= */
+const heroBtn = document.querySelector('.hero .cta-button');
+const configCard = document.querySelector('.config-card');
+
+if (heroBtn && configCard) {
+    heroBtn.addEventListener('click', () => {
+        // Esperamos un momento a que termine el scroll suave (aprox 800ms)
+        setTimeout(() => {
+            configCard.classList.add('focus-highlight');
+            
+            // Quitamos la clase después de que termine la animación (2s)
+            // para que se pueda repetir si el usuario vuelve a subir y bajar
+            setTimeout(() => {
+                configCard.classList.remove('focus-highlight');
+            }, 2000);
+        }, 800); 
+    });
+}
+
+/* =========================================
+   LÓGICA DEL BOTÓN "VOLVER ARRIBA"
+   ========================================= */
+const backToTopBtn = document.getElementById('backToTop');
+
+// 1. Detectar el scroll para mostrar u ocultar el botón
+window.addEventListener('scroll', () => {
+    // Si el usuario baja más de 400 píxeles, mostramos el botón
+    if (window.scrollY > 400) {
+        backToTopBtn.classList.add('show');
+    } else {
+        backToTopBtn.classList.remove('show');
+    }
+});
+
+// 2. Al hacer clic, subir suavemente hasta la cima
+backToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // Scroll suave
+    });
+});
