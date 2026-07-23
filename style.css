@@ -454,7 +454,7 @@ body.dark-mode .navbar.scrolled {
 .features {
     display: flex;
     justify-content: space-around;
-    padding: 70px 10%;
+    padding: 105px 10%;
     background: var(--navbar-bg);
     text-align: center;
     gap: 20px;
