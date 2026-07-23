@@ -987,3 +987,66 @@ body.dark-mode .navbar.scrolled {
     opacity: 1;
     visibility: visible;
 }
+
+.auth-box {
+    background: var(--card-bg);
+    padding: 60px 30px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    border: 2px dashed var(--accent-color);
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+.auth-box i {
+    font-size: 4rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    animation: floating 3s infinite ease-in-out;
+}
+
+.auth-box h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.auth-box p {
+    margin-bottom: 30px;
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+/* Botones pequeños con alineación perfecta */
+.btn-mini {
+    display: inline-flex;     /* Activa el alineado inteligente */
+    align-items: center;      /* Centra verticalmente */
+    justify-content: center;   /* Centra horizontalmente */
+    gap: 8px;                 /* Espacio exacto entre icono y texto */
+    
+    padding: 15px 16px !important; 
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    border-radius: 8px !important;
+    
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: 0.3s;
+    text-transform: none !important;
+    animation: none !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+}
+
+/* Ajuste del icono para que no se mueva */
+.btn-mini i {
+    font-size: 0.9rem !important; /* Un poquito más grande para que se vea claro */
+    margin: 0 !important;        /* Quitamos márgenes viejos */
+    line-height: 1 !important;    /* Evita que el icono empuje el texto hacia abajo */
+}
+
+.btn-mini:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2) !important;
+}

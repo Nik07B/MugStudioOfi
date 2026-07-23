@@ -206,10 +206,25 @@
         </div>
     </section>
 
-    <!-- SECCIÓN: CONFIGURADOR DE PEDIDO -->
-    <section class="configurador reveal" id="pedido">
-        <h2 class="section-title">Personaliza tu Pedido</h2>
-        <p class="section-subtitle" style="text-align: center; margin-top: -40px; margin-bottom: 40px; opacity: 0.8;">Completa los detalles y envíanos tu idea directamente por WhatsApp.</p>
+<!-- SECCIÓN: CONFIGURADOR DE PEDIDO (PROTEGIDA) -->
+<section class="configurador reveal" id="pedido">
+    <h2 class="section-title">Personaliza tu Pedido</h2>
+
+    <!-- BLOQUE 1: MENSJE DE BLOQUEO (Se muestra si NO está logueado) -->
+    <div id="auth-required-msg" class="auth-box">
+        <i class="fas fa-lock"></i>
+        <h3>Contenido Protegido</h3>
+        <p>Por seguridad y para guardar tus diseños, debes iniciar sesión o registrarte para realizar un pedido.</p>
+        <button onclick="document.getElementById('modalAuth').style.display='flex'" class="cta-button">
+            Ingresar / Registrarme
+        </button>
+    </div>
+
+    <!-- BLOQUE 2: FORMULARIO REAL (Se oculta por defecto: display: none) -->
+    <div id="order-form-container" style="display: none;">
+        <p class="section-subtitle" style="text-align: center; margin-top: -20px; margin-bottom: 40px; opacity: 0.8;">
+            Hola, ¡ya puedes armar tu pedido!
+        </p>
 
         <div class="config-container">
             <div class="config-card">
@@ -241,14 +256,14 @@
                     <select id="metodo-pago">
                         <option value="Transferencia">Transferencia Bancaria</option>
                         <option value="Mercado Pago">Mercado Pago</option>
-                        <option value="Efectivo">Efectivo (Retiro en persona)</button>
+                        <option value="Efectivo">Efectivo (Retiro en persona)</option>
                     </select>
                 </div>
 
                 <!-- Detalle del Diseño -->
                 <div class="config-group">
-                    <label for="detalle-diseno"><i class="fas fa-edit"></i> 3. Describe tu diseño:</label>
-                    <textarea id="detalle-diseno" placeholder="Ej: Quiero una foto de mi gato con la frase 'El rey de la casa' en color azul..."></textarea>
+                    <label for="detalle-diseno"><i class="fas fa-edit"></i> 5. Describe tu diseño:</label>
+                    <textarea id="detalle-diseno" placeholder="Ej: Quiero una foto de mi gato..."></textarea>
                 </div>
 
                 <!-- VISUALIZACIÓN DEL TOTAL -->
@@ -264,7 +279,8 @@
                 <p class="config-note">Al hacer clic, se abrirá tu WhatsApp con el pedido listo.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- SECCIÓN FAQ (ACORDEÓN) -->
     <section class="faq" id="faq-section">
@@ -317,7 +333,14 @@
                     </div>
                     <div class="input-group">
                         <label>Contraseña</label>
-                        <input type="password" placeholder="••••••••" required>
+                        <input type="password" id="register-password" placeholder="••••••••" required>
+                    </div>
+                    <div id="forgotPasswordGroup" style="text-align: right; margin-top: -10px; margin-bottom: 15px;">
+                        <a href="#" id="forgotPassword" style="font-size: 0.8rem; color: var(--accent-color); opacity: 0.8;">¿Olvidaste tu contraseña?</a>
+                    </div>
+                    <div class="input-group" id="repeatPasswordGroup" style="display: none;">
+                        <label>Repetir Contraseña</label>
+                        <input type="password" id="repeat-password" placeholder="••••••••">
                     </div>
                     <button type="submit" class="cta-button" style="width: 100%; border: none; cursor: pointer;">
                         Continuar
@@ -404,7 +427,12 @@
             <p>&copy; 2026 MugStudio - Todos los derechos reservados.</p>
         </div>
     </footer>
-
+    <!-- AQUÍ VAN LOS SCRIPTS DE FIREBASE -->
+    <!-- 1. El núcleo de Firebase (obligatorio) -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    
+    <!-- 2. El módulo de Autenticación (para el login) -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
     <!-- Script de JavaScript -->
     <script src="script.js"></script>
 </body>
